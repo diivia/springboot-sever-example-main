@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2022-09-12--create-textkey-table--kulygin
+      author: vkulygin
+      createTable:
+        tableName: text_key
+        columns:
+          - column:
+              name: id
+              type: bigint
+              autoIncrement: true
+              constraints:
+                nullable: false
+                primaryKey: true
+                primaryKeyName: pk_textkey
+          - column:
+              name: code
+              type: varchar(3)
+          - column:
+              name: description
+              type: varchar(256)
+          - column:
+              name: additional_info
+              type: varchar(256)
+          - column:
+              name: document_types
+              type: varchar(1024)
+          - column:
+              name: business_functions
+              type: varchar(1024)
+          - column:
+              name: network_types
+              type: varchar(1024)
+          - column:
+              name: is_available_for_printing
+              type: boolean
+          - column:
+              name: is_imported
+              type: boolean
+          - column:
+              name: company_code
+              type: varchar(4)

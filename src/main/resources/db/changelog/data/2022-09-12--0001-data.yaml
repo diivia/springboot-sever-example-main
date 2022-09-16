@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2022-09-12--0001-data-textkeys
+      author: vkulygin
+      runOnChange: true
+      loadUpdateData:
+        primaryKey: id
+        file: data/2022-09-12--0001-textkeys.csv
+        relativeToChangelogFile: true
+        separator: ;
+        quotChar: '"'
+        seperator: ';'
+        encoding: UTF-8
+        tableName: text_key

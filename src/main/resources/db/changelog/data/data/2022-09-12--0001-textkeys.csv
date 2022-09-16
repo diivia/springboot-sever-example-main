@@ -1,0 +1,13 @@
+id;code;description;additional_info;document_types;business_functions;network_types;is_available_for_printing;is_imported;company_code
+1;000;General Information;None;NULL;NULL;NULL;false;true;NULL
+2;01;Please pre-advise consignment at phone no;None;NULL;NULL;NULL;false;true;NULL
+3;02;Drivers Advice at Phone No;None;NULL;NULL;NULL;false;true;NULL
+4;03;Attention customs goods, enclosed customs document no;None;NULL;NULL;NULL;false;true;NULL
+5;04;After customs clearance deliver to company;None;NULL;NULL;NULL;false;true;NULL
+6;05;Reinstatement Period end on ;None;NULL;NULL;NULL;false;true;NULL
+7;06;Consignment for service of company ;None;NULL;NULL;NULL;false;true;NULL
+8;07;Consignment was already incorrectly loaded on;Date;NULL;NULL;NULL;false;true;NULL
+9;08;Out of this consignment already loaded in excess;None;NULL;NULL;NULL;false;true;NULL
+10;09;Authorised Consignee for custom goods - Enclosed customs documents no;None;NULL;NULL;NULL;false;true;FIKN
+11;103;Delivery instructions;None;521,L54,L01,L18,L05,746;RSC001,OTF001,CM0001,DM0001,SD0001,LHU001,LHL001,PO0001,DEM001;LTL/FTL,KN NNC,EXTERNAL,24PLUS;true;true;NULL
+12;11;Consignment was refused, return according to your instruction;None;NULL;NULL;NULL;false;true;FIKN
