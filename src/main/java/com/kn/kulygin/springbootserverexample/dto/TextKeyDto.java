@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 public class TextKeyDto {
     private Long id;
     private String code;
+    private String textKeyMapping;
     private String description;
     private String additionalInfo;
     private String documentTypes;

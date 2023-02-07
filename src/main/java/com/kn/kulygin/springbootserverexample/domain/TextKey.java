@@ -27,6 +27,9 @@ public class TextKey {
     @Column(name = "code")
     private String code;
 
+    @Column(name = "textKeyMapping")
+    private String textKeyMapping;
+
     @Column(name = "description")
     private String description;
 

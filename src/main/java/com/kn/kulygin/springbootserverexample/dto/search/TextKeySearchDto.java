@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 public class TextKeySearchDto extends SearchDto {
     private String code;
     private String company;
+    private String textKeyMapping;
     private String description;
     private String networkTypes;
     private String documentTypes;

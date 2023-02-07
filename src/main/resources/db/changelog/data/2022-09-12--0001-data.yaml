@@ -12,3 +12,29 @@ databaseChangeLog:
         seperator: ';'
         encoding: UTF-8
         tableName: text_key
+  - changeSet:
+      id: 2022-09-18-0001-data-documents
+      author: jkondratjeva
+      runOnChange: true
+      loadUpdateData:
+        primaryKey: id
+        file: data/2022-09-18--0001-documents.csv
+        relativeToChangelogFile: true
+        separator: ;
+        quotChar: '"'
+        seperator: ';'
+        encoding: UTF-8
+        tableName: document
+  - changeSet:
+      id: 2023-01-13--0001-data-networktypes
+      author: jkondratjeva
+      runOnChange: true
+      loadUpdateData:
+        primaryKey: id
+        file: data/2023-01-13--0001-data-networktypes.csv
+        relativeToChangelogFile: true
+        separator: ;
+        quotChar: '"'
+        seperator: ';'
+        encoding: UTF-8
+        tableName: network_type

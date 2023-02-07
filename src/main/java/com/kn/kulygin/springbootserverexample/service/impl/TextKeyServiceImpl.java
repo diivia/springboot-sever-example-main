@@ -12,6 +12,7 @@ import com.kn.kulygin.springbootserverexample.dto.search.TextKeySearchDto;
 import com.kn.kulygin.springbootserverexample.repository.TextKeyRepository;
 import com.kn.kulygin.springbootserverexample.service.TextKeyService;
 
+
 @Service
 public class TextKeyServiceImpl implements TextKeyService {
 
@@ -28,6 +29,7 @@ public class TextKeyServiceImpl implements TextKeyService {
                 Specification
                         .where(hasCode(searchDto.getCode()))
                         .and(hasDescription(searchDto.getDescription()))
+                        .and(hasTextKeyMapping(searchDto.getTextKeyMapping()))
                         .and(hasCompany(searchDto.getCompany()))
                         .and(hasDocumentTypes(searchDto.getDocumentTypes()))
                         .and(hasNetworkTypes(searchDto.getNetworkTypes())), PageRequest.of(searchDto.getPage(), searchDto.getPageSize()));
@@ -37,9 +39,25 @@ public class TextKeyServiceImpl implements TextKeyService {
                 .build();
     }
 
+    public TextKeyDtoList findUnique(TextKeySearchDto searchDto) {
+        searchDto.setPageSize(1);
+        Page<TextKey> textKeys = repository.findAll(
+                Specification
+                        .where(hasCode(searchDto.getCode()))
+                        .and(hasCompany(searchDto.getCompany())), PageRequest.of(searchDto.getPage(), searchDto.getPageSize()));
+        return TextKeyDtoList.builder()
+                .textKeys(mapper.mapAsList(textKeys.getContent(), TextKeyDto.class))
+                .totalElements(textKeys.getTotalElements())
+                .build();
+    }
+
     @Override
     public void delete(Long id) {
         repository.deleteById(id);
+    }
+    @Override
+    public TextKey findById(Long id) {
+        return repository.findById(id).orElse(null);
     }
 
     @Override
@@ -63,6 +81,17 @@ public class TextKeyServiceImpl implements TextKeyService {
                 return null;
             } else {
                 return cb.like(textKey.get("description"), "%" + description + "%");
+            }
+        };
+    }
+
+
+    static Specification<TextKey> hasTextKeyMapping(String  textKeyMapping) {
+        return (textKey, cq, cb) -> {
+            if (textKeyMapping == null) {
+                return null;
+            } else {
+                return cb.like(textKey.get("textKeyMapping"), "%" + textKeyMapping + "%");
             }
         };
     }
